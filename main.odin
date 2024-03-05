@@ -30,6 +30,7 @@ main :: proc() {
 	RPressed := false
 	REPressed := false
 	RGBPressed := false
+	TruthPressed := false
 
 	slideWidth: i32 = 1280
 	slideHeight: i32 = 960
@@ -70,6 +71,9 @@ main :: proc() {
 		} else if RGBPressed {
 			switch_map_image(&mapImage, &mapTexture, "images/RGB.png")
 			RGBPressed = false
+		} else if TruthPressed {
+			switch_map_image(&mapImage, &mapTexture, "images/first000_gt.png")
+			TruthPressed = false
 		}
 		
 		// Useless should not draw rectangles as texture 
@@ -104,6 +108,7 @@ main :: proc() {
 		RPressed = rl.GuiButton(rl.Rectangle{10, 185, 150, 25}, "Red")
 		REPressed = rl.GuiButton(rl.Rectangle{10, 220, 150, 25}, "RE")
 		RGBPressed = rl.GuiButton(rl.Rectangle{10, 255, 150, 25}, "RGB")
+		TruthPressed = rl.GuiButton(rl.Rectangle{10, 290, 150, 25}, "Ground Truth")
 		// rl.DrawRectangle(currentWidth - 300, 0, 300, currentHeight, rl.LIGHTGRAY)
 		// rl.DrawRectangleLines()
 	}
